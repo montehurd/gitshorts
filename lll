@@ -1,0 +1,9 @@
+printf "\n\e[47m LOG: \$lll \e[90m# \e[0m\n"
+if [ "x$1" == "x" ]
+then
+  LINES=20
+else
+  LINES="$1"
+fi
+
+git log --pretty=format:'%Cblue%h %Cgreen%<(11)%cd%Cred%<(14)%cr %Creset%s' --date=short -$LINES
