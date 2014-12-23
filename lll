@@ -6,4 +6,6 @@ else
   LINES="$1"
 fi
 
-git log --pretty=format:'%Cblue%h %Cgreen%<(11)%cd%Cred%<(14)%cr %Creset%s' --date=short -$LINES
+git --no-pager log --pretty=format:'%Cblue%h %Cgreen%<(11)%cd%Cred%<(14)%cr %Creset%s' --date=short -$LINES
+
+printf "\n"
