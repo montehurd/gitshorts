@@ -1,0 +1,55 @@
+
+filesString=$(git diff --name-only HEAD>&1);
+files=($(echo "$filesString" | tr '\n' '\n'))
+filesLength=${#files[@]}
+
+heading="\n\e[47m DIFF: \$ddd \e[0m \nUse arrow keys to cycle through file diffs, and 'q' to exit.\n"
+
+currentFileIndex=0
+
+clearOutput () {
+  clear;
+  printf '\e[3J';
+}
+
+showDiffForFile () {
+  clearOutput
+  printf "$heading\n"
+  git status --short HEAD "$1"
+  printf "\n"
+  git --no-pager diff --compact-summary --color HEAD "$1"
+  printf "\n"
+  git --no-pager diff --minimal --color HEAD "$1"
+}
+
+showDiffForFile ${files[currentFileIndex]}
+
+go_left () {
+  if (( $currentFileIndex > 0 )) ; then
+    ((currentFileIndex--))
+  fi
+  showDiffForFile ${files[currentFileIndex]}
+}
+
+go_right () {
+  if (( $currentFileIndex < (${filesLength} - 1) )) ; then
+    ((currentFileIndex++))
+  fi
+  showDiffForFile ${files[currentFileIndex]}
+}
+
+reset () {
+  aaa
+  exit
+}
+
+while : ; do
+  read -r -sn1 key <&1
+  case "$key" in
+      A) go_left;;
+      B) go_right;;
+      C) go_right;;
+      D) go_left;;
+      q) reset;;
+  esac
+done

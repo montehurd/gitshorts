@@ -3,4 +3,5 @@ printf "\e[47m ALL: \$aaa \e[0m\n"
 bbb
 lll 5
 sss
+printf "\n\e[47m DIFF: \$ddd \e[0m\n"
 printf "\n\e[47m PROMPT: \$ppp \e[0m\n"
