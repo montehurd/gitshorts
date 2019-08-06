@@ -3,7 +3,12 @@ filesString=$(git diff --name-only HEAD>&1);
 files=($(echo "$filesString" | tr '\n' '\n'))
 filesLength=${#files[@]}
 
-heading="\n\e[47m DIFF: \$ddd \e[0m \nUse arrow keys to cycle through file diffs, and 'q' to exit.\n"
+if (( $filesLength == 0 )) ; then
+  echo "No changes found"
+  exit
+fi
+
+heading="\n\e[47m DIFF: \$ddd \e[0m \nUse arrow keys to cycle through changed file diffs, and 'q' to exit.\n"
 
 currentFileIndex=0
 
