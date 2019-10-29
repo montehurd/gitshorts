@@ -1,2 +1,2 @@
 printf "\n\e[47m BRANCH: \$bbb \e[0m\n"
-git branch
+git --no-pager branch
