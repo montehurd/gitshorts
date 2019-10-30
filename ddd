@@ -1,7 +1,17 @@
+filesString=$(git --no-pager diff --name-only HEAD>&1);
 
-filesString=$(git diff --name-only HEAD>&1);
-files=($(echo "$filesString" | tr '\n' '\n'))
+unset files
+while read -rd $'\n' line; do
+    # echo "$line"
+    files+=("$line")
+done <<< "$filesString"
+
+# printf "%s\n" "${files[@]}"
+
 filesLength=${#files[@]}
+
+# printf "${filesLength}"
+# printf "${files[0]}"
 
 if (( $filesLength == 0 )) ; then
   echo "No changes found"
@@ -27,20 +37,20 @@ showDiffForFile () {
   git --no-pager diff --minimal --color HEAD "$1"
 }
 
-showDiffForFile ${files[currentFileIndex]}
+showDiffForFile "${files[currentFileIndex]}"
 
 go_left () {
   if (( $currentFileIndex > 0 )) ; then
     ((currentFileIndex--))
   fi
-  showDiffForFile ${files[currentFileIndex]}
+  showDiffForFile "${files[currentFileIndex]}"
 }
 
 go_right () {
   if (( $currentFileIndex < (${filesLength} - 1) )) ; then
     ((currentFileIndex++))
   fi
-  showDiffForFile ${files[currentFileIndex]}
+  showDiffForFile "${files[currentFileIndex]}"
 }
 
 reset () {
