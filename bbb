@@ -1,2 +1,3 @@
+#!/bin/sh
 printf "\n\e[47m BRANCH: \$bbb \e[0m\n"
 git --no-pager branch

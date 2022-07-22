@@ -1,3 +1,4 @@
+#!/bin/sh
 clear
 printf "\e[47m ALL: \$aaa \e[0m\n"
 bbb
