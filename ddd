@@ -1,17 +1,17 @@
 #!/bin/sh
 filesString=$(git --no-pager diff --name-only HEAD>&1);
 
+if (( ${#filesString} == 0 )) ; then
+  echo "No changes found"
+  exit
+fi
+
 unset files
 while read -rd $'\n' line; do
     files+=("$line")
 done <<< "$filesString"
 
 filesLength=${#files[@]}
-
-if (( $filesLength == 0 )) ; then
-  echo "No changes found"
-  exit
-fi
 
 heading="\n\e[47m DIFF: \$ddd \e[0m \nUse arrow keys to cycle through changed file diffs, and 'q' to exit.\n"
 

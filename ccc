@@ -1,17 +1,17 @@
 #!/bin/sh
 commitsString=$(git --no-pager log --pretty=format:"%h">&1)
 
+if (( ${#commitsString} == 0 )) ; then
+  echo "No commits found"
+  exit
+fi
+
 unset commits
 while read -rd $'\n' line; do
     commits+=("$line")
 done <<< "$commitsString"
 
 commitsLength=${#commits[@]}
-
-if (( $commitsLength == 0 )) ; then
-  echo "No changes found"
-  exit
-fi
 
 heading="\n\e[47m COMMIT: \$ccc \e[0m \nUse arrow keys to cycle through commit diffs, and 'q' to exit.\n"
 
