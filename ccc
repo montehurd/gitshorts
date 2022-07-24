@@ -27,7 +27,7 @@ showDiffForCommit () {
 
   printf "$heading\n"
   git --no-pager show "$1" --compact-summary
-  printf "\n\e[47m DIFF: \e[0m \n"
+  printf "\n\e[47m CHANGES: \e[0m \n"
   git --no-pager show --pretty='format:' "$1"
 
   # set window title
