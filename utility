@@ -1,0 +1,16 @@
+#!/bin/sh
+
+scrollToTop(){
+  # TODO: find other way to scroll all the way to top - this one flickers and is macos only
+  osascript <<'END'
+    tell application "Terminal"
+        activate
+    end tell
+    tell application "System Events"
+        key code 126 using {command down}
+    end tell
+END
+
+}
+
+"$@"

@@ -33,16 +33,7 @@ showDiffForCommit () {
   # set window title
   printf '\33]2;%s\007' "Commit $(($commitsLength-$currentCommitIndex)) of $commitsLength : $1"
 
-  # TODO: find other way to scroll all the way to top - this one flickers and is macos only
-  osascript <<'END'
-    tell application "Terminal"
-        activate
-    end tell
-    tell application "System Events"
-        key code 126 using {command down}
-    end tell
-END
-
+  utility scrollToTop
 }
 
 showDiffForCommit "${commits[currentCommitIndex]}"
