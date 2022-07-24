@@ -7,7 +7,7 @@ Bash scripts for super quick Git info.
 
 Run "git clone https://github.com/montehurd/gitshorts.git" from your user directory to place the shortcut files in a "~/gitshorts" folder.
 
-Then add "export PATH=$PATH:$HOME/gitshorts" to your "~.profile" file.
+Then add "export PATH=$PATH:$HOME/gitshorts" to your "~/.zshrc" or "~/.bashrc" file.
 
 Then in terminal, change to a directory managed by Git and type "aaa" enter.
 
