@@ -3,16 +3,10 @@ filesString=$(git --no-pager diff --name-only HEAD>&1);
 
 unset files
 while read -rd $'\n' line; do
-    # echo "$line"
     files+=("$line")
 done <<< "$filesString"
 
-# printf "%s\n" "${files[@]}"
-
 filesLength=${#files[@]}
-
-# printf "${filesLength}"
-# printf "${files[0]}"
 
 if (( $filesLength == 0 )) ; then
   echo "No changes found"
