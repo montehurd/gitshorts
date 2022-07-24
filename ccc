@@ -1,0 +1,79 @@
+#!/bin/sh
+commitsString=$(git --no-pager log --pretty=format:"%h">&1)
+
+unset commits
+while read -rd $'\n' line; do
+    commits+=("$line")
+done <<< "$commitsString"
+
+commitsLength=${#commits[@]}
+
+if (( $commitsLength == 0 )) ; then
+  echo "No changes found"
+  exit
+fi
+
+heading="\n\e[47m COMMIT: \$ccc \e[0m \nUse arrow keys to cycle through commit diffs, and 'q' to exit.\n"
+
+currentCommitIndex=0
+
+clearOutput () {
+  clear;
+  printf '\e[3J';
+}
+
+showDiffForCommit () {
+  clearOutput
+
+  printf "$heading\n"
+  git --no-pager show "$1" --compact-summary
+  printf "\n\e[47m DIFF: \e[0m \n"
+  git --no-pager show --pretty='format:' "$1"
+
+  # set window title
+  printf '\33]2;%s\007' "Commit $(($commitsLength-$currentCommitIndex)) of $commitsLength : $1"
+
+  # scroll terminal to top
+  # TODO: find other way to scroll all the way to top - this one flickers and is macos only
+  osascript <<'END'
+    tell application "Terminal"
+        activate
+    end tell
+    tell application "System Events"
+        key code 126 using {command down}
+    end tell
+END
+
+}
+
+showDiffForCommit "${commits[currentCommitIndex]}"
+
+go_left () {
+  if (( $currentCommitIndex > 0 )) ; then
+    ((currentCommitIndex--))
+  fi
+  showDiffForCommit "${commits[currentCommitIndex]}"
+}
+
+go_right () {
+  if (( $currentCommitIndex < (${commitsLength} - 1) )) ; then
+    ((currentCommitIndex++))
+  fi
+  showDiffForCommit "${commits[currentCommitIndex]}"
+}
+
+reset () {
+  aaa
+  exit
+}
+
+while : ; do
+  read -r -sn1 key <&1
+  case "$key" in
+      A) go_left;;
+      B) go_right;;
+      C) go_right;;
+      D) go_left;;
+      q) reset;;
+  esac
+done
