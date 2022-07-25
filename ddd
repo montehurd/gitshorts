@@ -13,7 +13,7 @@ done <<< "$filesString"
 
 filesLength=${#files[@]}
 
-heading="\n\e[47m DIFF: \$ddd \e[0m \nUse arrow keys to cycle through changed file diffs, and 'q' to exit.\n"
+heading="\n\e[47m DIFF: \$ddd \e[0m Use arrow keys to cycle through changed file diffs, and 'q' to exit.\n"
 
 currentFileIndex=0
 
@@ -25,10 +25,8 @@ clearOutput () {
 showDiffForFile () {
   clearOutput
   printf "$heading\n"
-  git status --short HEAD "$1"
-  printf "\n\e[47m CHANGES: \e[0m \n"
   git --no-pager diff --compact-summary --color HEAD "$1"
-  printf "\n"
+  printf "\n\e[47m\033[K\n\e[0m\n"
   git --no-pager diff --minimal --color HEAD "$1"
   utility scrollToTop
 }

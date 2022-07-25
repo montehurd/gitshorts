@@ -13,7 +13,7 @@ done <<< "$commitsString"
 
 commitsLength=${#commits[@]}
 
-heading="\n\e[47m COMMIT: \$ccc \e[0m \nUse arrow keys to cycle through commit diffs, and 'q' to exit.\n"
+heading="\n\e[47m COMMIT: \$ccc \e[0m Use arrow keys to cycle through commit diffs, and 'q' to exit.\n"
 
 currentCommitIndex=0
 
@@ -27,7 +27,7 @@ showDiffForCommit () {
 
   printf "$heading\n"
   git --no-pager show "$1" --compact-summary
-  printf "\n\e[47m CHANGES: \e[0m \n"
+  printf "\n\e[47m\033[K\n\e[0m\n"
   git --no-pager show --pretty='format:' "$1"
 
   # set window title
