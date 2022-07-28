@@ -35,14 +35,14 @@ showDiffForCommit () {
 
 showDiffForCommit "${commits[currentCommitIndex]}"
 
-go_left () {
+goLeft () {
   if (( $currentCommitIndex > 0 )) ; then
     ((currentCommitIndex--))
   fi
   showDiffForCommit "${commits[currentCommitIndex]}"
 }
 
-go_right () {
+goRight () {
   if (( $currentCommitIndex < (${commitsLength} - 1) )) ; then
     ((currentCommitIndex++))
   fi
@@ -57,10 +57,10 @@ reset () {
 while : ; do
   read -r -sn1 key <&1
   case "$key" in
-      A) go_left;;
-      B) go_right;;
-      C) go_right;;
-      D) go_left;;
+      A) goLeft;;
+      B) goRight;;
+      C) goRight;;
+      D) goLeft;;
       q) reset;;
   esac
 done

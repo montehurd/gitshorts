@@ -35,14 +35,14 @@ showDiffForFile () {
 
 showDiffForFile "${files[currentFileIndex]}"
 
-go_left () {
+goLeft () {
   if (( $currentFileIndex > 0 )) ; then
     ((currentFileIndex--))
   fi
   showDiffForFile "${files[currentFileIndex]}"
 }
 
-go_right () {
+goRight () {
   if (( $currentFileIndex < (${filesLength} - 1) )) ; then
     ((currentFileIndex++))
   fi
@@ -57,10 +57,10 @@ reset () {
 while : ; do
   read -r -sn1 key <&1
   case "$key" in
-      A) go_left;;
-      B) go_right;;
-      C) go_right;;
-      D) go_left;;
+      A) goLeft;;
+      B) goRight;;
+      C) goRight;;
+      D) goLeft;;
       q) reset;;
   esac
 done
