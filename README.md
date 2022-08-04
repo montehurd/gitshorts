@@ -40,7 +40,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 
 ## Installation
 
-If this looks useful, installation is fairly easy.
+If this looks useful, installation is fairly easy:
 
 - run `git clone https://github.com/montehurd/gitshorts.git`
 - add `export PATH=$PATH:$HOME/gitshorts` to the bottom of your terminal config file. i.e. `~/.zshrc`, `~/.bashrc` or `~/.profile` etc. this basically routes the three-character commands to their respective scripts
