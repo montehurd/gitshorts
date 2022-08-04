@@ -32,7 +32,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 - `ddd`
     - **diff** for each modified but as-of-yet uncommitted file. once activated use arrow keys to navigate between individual file diffs. use `q` to exit back to `aaa`
 - `ccc`
-    - **commits**, showing diff for each historical commit. use arrow keys to navigate between individual commit diffs, most recent commit diff is shown first. use `q` to exit back to `aaa`
+    - **commits**, showing diff for each historical commit. once activated use arrow keys to navigate between individual commit diffs. most recent commit diff is shown first. use `q` to exit back to `aaa`
 - `ppp`
     - **prompt**, clearing other console text
 
