@@ -34,7 +34,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 - `ccc`
     - **c**ommits, showing diff for each historical commit. use arrow keys to navigate between individual commit diffs, use `q` to exit
 - `ppp`
-    - *p*rompt, clearing other console text
+    - **p**rompt, clearing other console text
 
 &nbsp;
 
