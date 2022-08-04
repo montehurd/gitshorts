@@ -51,3 +51,11 @@ If this looks useful, installation is fairly easy:
 ## Tweaks
 
 Each of the three-character codes simply invokes a shell script file named with that three-character code. These scripts can be easily modified as needed - just edit the respective file.
+
+&nbsp;
+
+## Known issues
+
+When using `ccc` or `ddd` and viewing very long diffs, I don't know how to scroll the terminal up to the top in a platform independent way:
+
+https://github.com/montehurd/gitshorts/issues/1
