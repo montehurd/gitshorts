@@ -56,4 +56,4 @@ Each of the three-character codes simply invokes a shell script file named with 
 
 ## Known issues
 
-When using `ccc` or `ddd` and viewing very long diffs, I don't know how to scroll the terminal up to the top in a platform independent way: https://github.com/montehurd/gitshorts/issues/1
+When using `ccc` or `ddd` to view very long diffs, I don't know how to scroll the terminal *completely* to the top in a platform independent way: https://github.com/montehurd/gitshorts/issues/1
