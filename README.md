@@ -15,7 +15,7 @@ When using Git on the command line, I found myself continually wanting to see:
 
 ## Approach
 
-This repo, once installed, makes seeing everything mentioned above extremely easy. After installation, simply change to a directory under Git source control, then type "aaa" and press enter. You will see output formatted similar to the following:
+This repo, once installed, makes seeing everything mentioned above extremely easy. After installation, simply change to a directory under Git source control, then type `aaa` and press enter. You will see output formatted similar to the following:
 
 ![Example output](https://raw.github.com/montehurd/gitshorts/master/screenshot.png)
 
