@@ -19,7 +19,7 @@ These scripts make seeing everything mentioned above extremely easy. After insta
 
 ![Example output](https://raw.github.com/montehurd/gitshorts/master/screenshot.png)
 
-The repeating sequence `aaa` was chosen to represent showing "All" the info mentioned [above](#motivation).
+The repeating sequence `aaa` was chosen to represent showing "All" the info mentioned [above](#user-content-motivation).
 
 Note in the picture above there are six other three-character codes. Three-character repeating codes are extremely easy to invoke. They represent the individual parts of the output displayed when `aaa` is invoked:
 
