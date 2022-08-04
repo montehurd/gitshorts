@@ -28,7 +28,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 - `lll`
     - **log** of most recent commits with optional numeric argument (defaults to 5 if unspecified)
 - `sss`
-    - **status** of files in the current Git repo
+    - **status** of files
 - `ddd`
     - **diff** for each modified but as-of-yet uncommitted file. once activated use arrow keys to navigate between individual file diffs. use `q` to exit back to `aaa`
 - `ccc`
