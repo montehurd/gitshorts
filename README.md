@@ -24,7 +24,7 @@ The repeating sequence `aaa` was chosen to represent showing "All" the info ment
 Note in the picture above there are six other three-character codes. Three-character repeating codes are extremely easy to invoke. They represent the individual parts of the output displayed when `aaa` is invoked:
 
 - `bbb`
-    - **branches**, indicating which branch is checked out
+    - **branches**, also indicating which branch is checked out
 - `lll`
     - **log** of most recent commits with optional numeric argument (defaults to 5 if unspecified)
 - `sss`
