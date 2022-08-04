@@ -9,7 +9,7 @@ When using Git on the command line, I found myself continually wanting to see:
 - recent commits and their short commit messages
 - status of files in the currently checked out branch
 - diff of each modified but uncommitted file
-- diff of files comprising historical commits
+- diffs of files comprising historical commits
 
 &nbsp;
 
