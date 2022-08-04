@@ -1,5 +1,5 @@
 #!/bin/sh
-printf "\n\e[47m LOG: \$lll \e[90m# \e[0m\n"
+utility printHeading "LOG: \$lll"
 if [ "x$1" == "x" ]
 then
   LINES=20

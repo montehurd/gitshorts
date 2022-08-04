@@ -13,8 +13,6 @@ done <<< "$commitsString"
 
 commitsLength=${#commits[@]}
 
-heading="\n\e[47m COMMIT: \$ccc \e[0m Use arrow keys to cycle through commit diffs, and 'q' to exit.\n"
-
 currentCommitIndex=0
 
 clearOutput () {
@@ -24,9 +22,9 @@ clearOutput () {
 
 showDiffForCommit () {
   clearOutput
-  printf "$heading\n"
+  utility printHeading "COMMIT: \$ccc" "Use arrow keys to cycle through commit diffs, and 'q' to exit.\n"
   git --no-pager show "$1" --compact-summary
-  printf "\n\e[47m\033[K\n\e[0m\n"
+  utility printSeparator
   git --no-pager show --pretty='format:' "$1"
   # set window title
   printf '\33]2;%s\007' "$1 [$(($commitsLength-$currentCommitIndex)) of $commitsLength]"

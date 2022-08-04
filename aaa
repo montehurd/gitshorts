@@ -1,9 +1,15 @@
 #!/bin/sh
 clear
-printf "\e[47m ALL: \$aaa \e[0m\n"
+utility printHeading "ALL: \$aaa"
+printf "\n"
 bbb
+printf "\n"
 lll 5
+printf "\n"
 sss
-printf "\n\e[47m DIFF: \$ddd \e[0m\n"
-printf "\n\e[47m COMMITS: \$ccc \e[0m\n"
-printf "\n\e[47m PROMPT: \$ppp \e[0m\n"
+printf "\n"
+utility printHeading "DIFF: \$ddd"
+printf "\n"
+utility printHeading "COMMITS: \$ccc"
+printf "\n"
+utility printHeading "PROMPT: \$ppp"
