@@ -24,15 +24,15 @@ The repeating sequence `aaa` was chosen to represent showing "All" the info ment
 Note in the picture above there are six other three-character codes. Three-character repeating codes are extremely easy to invoke. They represent the individual parts of the output displayed when `aaa` is invoked:
 
 - `bbb`
-    - lists branches indicating which branch is checked out
+    - **b**ranches, indicating which branch is checked out
 - `lll`
-    - lists the 5 most recent commits. can be invoked with a number argument to show more/less - ie `lll 50` will show 50 most recent commit messages
+    - **l**ist most recent commits with optional number argument which defaults to 5 if unspecified
 - `sss`
-    - show status of files in the current Git repo
+    - **s**tatus of files in the current Git repo
 - `ddd`
-    - show diff for each modified but as-of-yet uncommitted file in the current Git repo - use arrow keys to navigate between individual file diffs, use `q` to return to `aaa`
+    - **d**iff for each modified but as-of-yet uncommitted file. once activated use arrow keys to navigate between individual file diffs, use `q` to exit
 - `ccc`
-    - show diff for each historical commit in the current Git repo - use arrow keys to navigate between individual commit diffs, use `q` to return to `aaa`
+    - **c**ommits, showing diff for each historical commit. use arrow keys to navigate between individual commit diffs, use `q` to exit
 - `ppp`
     - clear console output showing empty prompt
 
