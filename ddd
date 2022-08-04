@@ -26,7 +26,7 @@ showDiffForFile () {
   git --no-pager diff --compact-summary --color HEAD "$1"
   utility printSeparator
   git --no-pager diff --minimal --color HEAD "$1"
-    # set window title
+  # set window title
   printf '\33]2;%s\007' "$1 [$(($currentFileIndex+1)) of $filesLength]"
   utility scrollToTop
 }
