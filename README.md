@@ -5,11 +5,11 @@
 ## Motivation
 
 When using Git on the command line, I found myself continually wanting to see:
-- which branches I had locally and which was checked out
-- recent commits and their short commit messages
-- status of files in the currently checked out branch
-- diff of each modified but uncommitted file
-- diffs of files comprising historical commits
+- **branches** I had locally and which was checked out
+- **logs** of recent commits with short commit messages
+- **status** of files in the currently checked out branch
+- **diffs** of modified but uncommitted files
+- **commits** and their file diffs
 
 &nbsp;
 
