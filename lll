@@ -1,5 +1,5 @@
 #!/bin/sh
-utility printHeading "LOG: \$lll"
+utility printHeading "LOG: \$lll \e[37m#"
 if [ "x$1" == "x" ]
 then
   LINES=20
