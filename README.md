@@ -26,7 +26,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 - `bbb`
     - **b**ranches, indicating which branch is checked out
 - `lll`
-    - **l**ist most recent commits with optional number argument which defaults to 5 if unspecified
+    - **l**og of most recent commits with optional numeric argument (defaults to 5 if unspecified)
 - `sss`
     - **s**tatus of files in the current Git repo
 - `ddd`
@@ -34,7 +34,7 @@ Note in the picture above there are six other three-character codes. Three-chara
 - `ccc`
     - **c**ommits, showing diff for each historical commit. use arrow keys to navigate between individual commit diffs, use `q` to exit
 - `ppp`
-    - clear console output showing empty prompt
+    - *p*rompt, clearing other console text
 
 &nbsp;
 
