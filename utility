@@ -1,7 +1,12 @@
 #!/bin/sh
 
 scrollToTop(){
-  # TODO: find other way to scroll all the way to top - this one flickers and is macos only
+  # TODO: find other way to scroll all the way to top - "osascript" flickers and is macOS only
+
+  if ! exists osascript; then
+    exit 0
+  fi
+
   osascript <<'END'
     tell application "Terminal"
         activate
@@ -19,6 +24,10 @@ printHeading(){
 
 printSeparator(){
   printf "\n\e[100m\033[K\n\e[0m\n"
+}
+
+exists(){
+  command -v "$1" >/dev/null 2>&1
 }
 
 "$@"
