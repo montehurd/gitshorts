@@ -19,7 +19,7 @@ END
 }
 
 printHeading(){
-    printf "\n\e[1m\e[100m $1 \e[0m $2\n"
+  printf "\n\e[1m\e[100m $1 \e[0m $2\n"
 }
 
 printSeparator(){
