@@ -22,7 +22,7 @@ showDiffForCommit () {
   utility printSeparator
   git --no-pager show --pretty='format:' "$1"
   # set window title
-  printf '\33]2;%s\007' "$1 [$(($commitsLength-$currentCommitIndex)) of $commitsLength]"
+  utility setWindowTitle "$1 [$(($commitsLength-$currentCommitIndex)) of $commitsLength]"
   utility scrollToTop
 }
 
