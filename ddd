@@ -15,13 +15,8 @@ filesLength=${#files[@]}
 
 currentFileIndex=0
 
-clearOutput () {
-  clear;
-  printf '\e[3J';
-}
-
 showDiffForFile () {
-  clearOutput
+  utility clearScreen
   utility printHeading "DIFF: \$ddd" "Use arrow keys to cycle through changed file diffs, and 'q' to exit.\n"
   git --no-pager diff --compact-summary --color HEAD "$1"
   utility printSeparator

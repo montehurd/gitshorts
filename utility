@@ -30,4 +30,9 @@ exists(){
   command -v "$1" >/dev/null 2>&1
 }
 
+# https://apple.stackexchange.com/a/318217
+clearScreen () {
+  printf '\e[2J\e[3J\e[H'
+}
+
 "$@"

@@ -15,13 +15,8 @@ commitsLength=${#commits[@]}
 
 currentCommitIndex=0
 
-clearOutput () {
-  clear;
-  printf '\e[3J';
-}
-
 showDiffForCommit () {
-  clearOutput
+  utility clearScreen
   utility printHeading "COMMIT: \$ccc" "Use arrow keys to cycle through commit diffs, and 'q' to exit.\n"
   git --no-pager show "$1" --compact-summary
   utility printSeparator
