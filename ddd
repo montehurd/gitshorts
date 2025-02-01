@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 filesString=$(git --no-pager diff --name-only HEAD>&1);
 
 if [ ${#filesString} -eq 0 ]; then
@@ -6,11 +6,7 @@ if [ ${#filesString} -eq 0 ]; then
   exit
 fi
 
-unset files
-while read -rd $'\n' line; do
-    files+=("$line")
-done <<< "$filesString"
-
+files=($filesString)
 filesLength=${#files[@]}
 
 currentFileIndex=0
@@ -29,15 +25,15 @@ showDiffForFile () {
 showDiffForFile "${files[currentFileIndex]}"
 
 goLeft () {
-  if (( $currentFileIndex > 0 )) ; then
-    ((currentFileIndex--))
+  if [ $currentFileIndex -gt 0 ]; then
+    currentFileIndex=$((currentFileIndex - 1))
   fi
   showDiffForFile "${files[currentFileIndex]}"
 }
 
 goRight () {
-  if (( $currentFileIndex < (${filesLength} - 1) )) ; then
-    ((currentFileIndex++))
+  if [ $currentFileIndex -lt $((filesLength - 1)) ]; then
+    currentFileIndex=$((currentFileIndex + 1))
   fi
   showDiffForFile "${files[currentFileIndex]}"
 }

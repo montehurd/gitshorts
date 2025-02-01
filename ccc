@@ -1,16 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 commitsString=$(git --no-pager log --pretty=format:"%h">&1)
 
-if (( ${#commitsString} == 0 )) ; then
+if [ ${#commitsString} -eq 0 ]; then
   echo "No commits found"
   exit
 fi
 
-unset commits
-while read -rd $'\n' line; do
-    commits+=("$line")
-done <<< "$commitsString"
-
+commits=($commitsString)
 commitsLength=${#commits[@]}
 
 currentCommitIndex=0
@@ -21,23 +17,22 @@ showDiffForCommit () {
   git --no-pager show "$1" --compact-summary
   utility printSeparator
   git --no-pager show --pretty='format:' "$1"
-  # set window title
-  utility setWindowTitle "$1 [$(($commitsLength-$currentCommitIndex)) of $commitsLength]"
+  utility setWindowTitle "$1 [$((commitsLength-currentCommitIndex)) of $commitsLength]"
   utility scrollToTop
 }
 
 showDiffForCommit "${commits[currentCommitIndex]}"
 
 goLeft () {
-  if (( $currentCommitIndex > 0 )) ; then
-    ((currentCommitIndex--))
+  if [ $currentCommitIndex -gt 0 ]; then
+    currentCommitIndex=$((currentCommitIndex - 1))
   fi
   showDiffForCommit "${commits[currentCommitIndex]}"
 }
 
 goRight () {
-  if (( $currentCommitIndex < (${commitsLength} - 1) )) ; then
-    ((currentCommitIndex++))
+  if [ $currentCommitIndex -lt $((commitsLength - 1)) ]; then
+    currentCommitIndex=$((currentCommitIndex + 1))
   fi
   showDiffForCommit "${commits[currentCommitIndex]}"
 }
